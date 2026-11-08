@@ -16,17 +16,9 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://modmaven.dev/")
             content {
-                includeGroup("mezz.jei")
             }
         }
-        maven {
-            url = uri("https://maven.shedaniel.me/")
-            content {
-                includeGroup("me.shedaniel")
-                includeGroup("me.shedaniel.cloth")
-                includeGroup("dev.architectury")
-            }
-        }
+        // синк/порт 26.1.2: shedaniel/architectury maven-блок удалён — политика (AGENTS.md п.3а)
         maven {
             url = uri("https://maven.terraformersmc.com/")
             content {

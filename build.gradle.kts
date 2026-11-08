@@ -5,7 +5,7 @@ plugins {
 }
 
 val ae2Version: String by project
-val architecturyVersion: String by project
+// val architecturyVersion: String by project // синк/порт 26.1.2: удалено — политика (AGENTS.md п.3а)
 val runtimeItemlistMod: String by project
 val jeiMinecraftVersion: String by project
 val jeiVersion: String by project
@@ -40,25 +40,15 @@ dependencies {
     jarJar(project(path = ":ae2wtlib_api"))
     api(project(path = ":ae2wtlib_api"))
 
-    compileOnly("me.shedaniel:RoughlyEnoughItems-neoforge:${reiVersion}")
-    compileOnly("mezz.jei:jei-${jeiMinecraftVersion}-neoforge:${jeiVersion}")
     compileOnly("dev.emi:emi-neoforge:${emiVersion}+${emiMinecraftVersion}:api")
 
     when (runtimeItemlistMod) {
-        "rei" -> {
-            runtimeOnly("me.shedaniel:RoughlyEnoughItems-neoforge:${reiVersion}")
-            runtimeOnly("dev.architectury:architectury-neoforge:${architecturyVersion}")
-        }
-
-        "jei" -> runtimeOnly("mezz.jei:jei-${jeiMinecraftVersion}-neoforge:${jeiVersion}")
-
         "emi" -> {
             runtimeOnly("dev.emi:emi-neoforge:${emiVersion}+${emiMinecraftVersion}")
         }
 
         "jemi" -> {
             runtimeOnly("dev.emi:emi-neoforge:${emiVersion}+${emiMinecraftVersion}")
-            runtimeOnly("mezz.jei:jei-${jeiMinecraftVersion}-neoforge:${jeiVersion}")
         }
     }
 
